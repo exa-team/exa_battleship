@@ -1,0 +1,38 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home div {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 96px;
+    color: #071E22;
+    text-align: center;
+}
+
+input {
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 1rem;
+}
+
+button {
+    cursor: pointer;
+    background: #009FFD;
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    margin: 5px;
+    font-size: 1.1rem;
+}
