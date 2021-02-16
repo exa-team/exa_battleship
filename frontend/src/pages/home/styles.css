@@ -1,38 +1,169 @@
 .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 500px;
 }
 
 .home div {
-    width: 500px;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 96px;
-    color: #071E22;
-    text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 96px;
+  color: #071E22;
+  text-align: center;
 }
 
 input {
-    border-radius: 3px;
-    padding: 10px;
-    margin-bottom: 1rem;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 1rem;
 }
 
 button {
-    cursor: pointer;
-    background: #009FFD;
-    border-radius: 3px;
-    color: #ffffff;
-    padding: 10px;
-    font-weight: bold;
-    border: none;
-    margin: 5px;
-    font-size: 1.1rem;
+  /* centraliza itens do botão */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px 25px;
+  min-height: 45px;
+  width: auto;
+  border-radius: 0.5rem;
+  border: 2px solid white;
+  background: #009FFD;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}
+
+/* animação do hover: position absolute é melhor pra animação porque processa menos */
+button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  transition: all 0.4s ease-in-out;
+}
+
+button:hover::after {
+  box-shadow: 0 0 9px 2px rgb(231, 225, 225);
+}
+
+button.working {
+  animation: sizing 0.7s;
+  animation-fill-mode: forwards;
+}
+
+button.working::after {
+  display: none;
+}
+  
+button span {
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+ }
+  
+.gear {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  margin: 0;
+  margin-left: 10px;
+  font-size: 2.8rem;
+  /* position: absolute; */
+  filter: invert(1); /* color */
+  animation: display 0.9s, spin 3s infinite linear;
+}
+  
+button.done {
+  animation: reverseSizing 0.7s;
+  animation-fill-mode: forwards;
+}
+  
+@keyframes display {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+  
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+  
+@keyframes sizing {
+  30% {
+    width: 65px;
+    height: 65px;
+  }
+  75% {
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+  }
+  100% {
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+  }
+}
+  
+@keyframes reverseSizing {
+  0% {
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+  }
+  10% {
+    border-radius: 0.5rem;
+  }
+  65% {
+    width: auto;
+    height: 45px;
+  }
+  100% {
+    border-radius: 0.5rem;
+    width: auto;
+    height: 45px;
+  }
+}
+
+.alerta {
+  position: absolute;
+  justify-content: center;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 2px;
+  text-align: center;
+  color: #721c24;
+  min-height: 40px;
+  top: 20px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  width: 500px;
+}
+
+.erro {
+  background-color: #f8d7da;
 }
