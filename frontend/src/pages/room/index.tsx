@@ -6,12 +6,12 @@ interface Params {
 function Room() {
     let { salaId } = useParams<Params>();
 
-    if (salaId === 'privada') {
-        return <p>privada</p>
-    } else if (salaId === 'procurar') {
-        return <p>procurar</p>
+    if (salaId === 'private') {
+        return <p>private</p>
+    } else if (salaId === 'public') {
+        return <p>public</p>
     } else {
-        return <p>NADA PRA NAO DAR ERRO</p>
+        return <p>error</p>
     }
 
     // return <p>deuboa:{ salaId }</p>

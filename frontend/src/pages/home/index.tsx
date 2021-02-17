@@ -35,7 +35,7 @@ const Botao = ({ onClique, loading, textoDefault, textoLoading, disabled }: Bota
   );
 };
 
-const ERROR_NICK_MESSAGE = "É necessário informar um nickname.";
+const ERROR_NICK_MESSAGE = "Nickname it's necessary.";
 
 interface AlertProps {
   message: string;
@@ -43,7 +43,7 @@ interface AlertProps {
 
 const Alert = ({ message }: AlertProps) => {
   return (
-    <div className="alerta">
+    <div className="alert">
       <span>{message}</span>
     </div>
   );
@@ -79,7 +79,7 @@ function Home() {
         history.push(`/room/${response.data.id}`);
       })
       .catch((error) => {
-        setErrorList(["Erro ao criar a sala."]);
+        setErrorList(["Something went wrong :("]);
       });
   };
 
@@ -106,17 +106,17 @@ function Home() {
         />
 
         <Botao
-          onClique={() => handlerTipoJogo("privada")}
-          loading={fetching["privada"] && !roomId}
-          textoDefault="Partida Privada"
-          textoLoading="Criando sala"
+          onClique={() => handlerTipoJogo("private")}
+          loading={fetching["private"] && !roomId}
+          textoDefault="Private game"
+          textoLoading="Creating game"
           disabled={Object.keys(fetching).length !== 0}
         />
         <Botao
-          onClique={() => handlerTipoJogo("publica")}
-          loading={fetching["publica"] && !roomId}
-          textoDefault="Partida Pública"
-          textoLoading="Buscando sala"
+          onClique={() => handlerTipoJogo("public")}
+          loading={fetching["public"] && !roomId}
+          textoDefault="Public game"
+          textoLoading="Searching game"
           disabled={Object.keys(fetching).length !== 0}
         />
       </div>
